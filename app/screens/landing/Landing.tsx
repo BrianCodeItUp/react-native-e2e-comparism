@@ -1,7 +1,8 @@
-import { Button, ListItem } from 'react-native-elements'
 import { Dimensions, SafeAreaView, Text, TextStyle, View, ViewStyle } from 'react-native'
 import React, { useCallback } from 'react'
 
+import { Button } from 'react-native-elements'
+import { testID } from '../utils'
 import { useNavigation } from '@react-navigation/native'
 
 const { width: DEVICE_WIDTH } = Dimensions.get('window')
@@ -30,11 +31,11 @@ const Landing = () => {
   }, [])
 
   return (
-    <View style={CONTAINER}>
+    <View style={CONTAINER} {...testID('landing-screen')}>
       <SafeAreaView/>
       <View style={CONTENT}>
         <View style={TITLE_WRAPPER}><Text style={TITLE}>功能</Text></View>
-        <Button title="新增待辦事項" onPress={addToDo} />
+        <Button title="新增待辦事項" onPress={addToDo} {...testID('go-to-add-todo-button')} />
       </View>
     </View>
   )

@@ -5,6 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "clear.cache": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro* && rm -rf $TMPDIR/haste-*",
+    "android.clear.build": "yarn clear.cache && rm -rf ./android/app/build",
+    "android.release": "yarn android.clear.build && cd android && ./gradlew assembleRelease",
+    "ios.clear.build": "yarn clear.cache && rm -rf ./ios/build/e2eSetup/Build/Products/Release-iphonesimulator",
+    "ios.sim.release": "yarn ios.clear.build && react-native run-ios --configuration Release",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
