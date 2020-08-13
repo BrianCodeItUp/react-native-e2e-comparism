@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <View style={{ flex: 1}} {...testID('app-root')} accessible={false}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} > 
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
       <KeyboardAvoidingView style={CONTAINR} behavior={keyboardBehavior[Platform.OS]} keyboardVerticalOffset={50}>
         <Card containerStyle={CONTENT}>
           <View style={TITLE_WRAPPER}>

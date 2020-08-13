@@ -1,9 +1,13 @@
 import { Platform } from 'react-native'
 
-export function testID  (id: string)  {
-  if (Platform.OS === 'ios') {
-    return { testID: id }
+const IS_IOS = Platform.OS === 'ios';
+export function testID  (id: string, disableAccessible = false)  {
+  const disableAccessibility = disableAccessible ? {accessible: false} : {};
+
+  if (IS_IOS) {
+    return {...disableAccessibility, testID: id};
   }
 
-  return { accessibilityLabel: id }
+  return {...disableAccessibility, accessibilityLabel: id};
 }
+

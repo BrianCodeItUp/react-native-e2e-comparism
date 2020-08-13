@@ -122,7 +122,7 @@ const Todos: React.FC = () => {
   }
   return (
     <View style={{ flex: 1}} {...testID('todo-screen')}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} > 
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
         <KeyboardAvoidingView style={CONTAINR} behavior='padding'  keyboardVerticalOffset={100}>
           <View style={LIST_WRAPPER}>
             <FlatList 
