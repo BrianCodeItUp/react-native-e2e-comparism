@@ -15,7 +15,7 @@ config.capabilities = [{
   // https://github.com/appium/appium/releases/tag/v1.13.0
   'appium:automationName': 'XCUITest',
   // The path to the app
-  'appium:app': '/Users/brian.chen/Library/Developer/Xcode/DerivedData/e2eSetup-dofcdtbokeufpzfroqiopvfzaqpu/Build/Products/Debug-iphonesimulator/e2eSetup.app',
+  'appium:app': '/Users/brian.chen/Documents/e2e/e2eSetup/ios/Build/Products/Debug-iphonesimulator/e2eSetup.app',
   // Read the reset strategies very well, they differ per platform, see
   // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
   'appium:noReset': true,

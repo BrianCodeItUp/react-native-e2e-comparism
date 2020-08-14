@@ -9,12 +9,6 @@ describe('Simple App testing', () => {
   it('登入成功', () => {
     $('~username').setValue('Brian Chen')
     $('~password').setValue('123456')
-    
-    // if (driver.isKeyboardShown()) {
-    //   driver.hideKeyboard();
-    // }
-    // driver.setImplicitTimeout(10000)
-    
     $('~login-button').click();
   });
 

@@ -1,6 +1,6 @@
 import { Button, Input, ListItem, Overlay } from 'react-native-elements'
 import { Dimensions, FlatList, Keyboard, KeyboardAvoidingView, Text, TextStyle, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { testID } from '../utils'
 
@@ -93,6 +93,7 @@ const Todos: React.FC = () => {
   const [content, setContent]= useState('');
   const [todos, setTodos] = useState<Todo[]>([])
   const [isAddSuccess, setIsAddSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const addTodo = () => {
     const id = todos.length + 1; 
     const todo: Todo = { 
@@ -120,6 +121,23 @@ const Todos: React.FC = () => {
       return newTodos;
     })
   }
+  useEffect(() => {
+    async function loadData() {
+      setIsLoading(true)
+      const time = (Math.floor(Math.random() * 10) + 1) *1000
+      const result = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)  
+        }, time)
+      })
+  
+      if(result) {
+        setIsLoading(false)
+      }
+    }
+    loadData()
+  }, [])
+
   return (
     <View style={{ flex: 1}} {...testID('todo-screen')}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
@@ -160,6 +178,11 @@ const Todos: React.FC = () => {
         isVisible={isAddSuccess} 
         setIsVisible={setIsAddSuccess}
       />
+      <Overlay isVisible={isLoading}>
+        <View>
+          <Text>載入中</Text>
+        </View>
+      </Overlay>
     </View>
   );
 };

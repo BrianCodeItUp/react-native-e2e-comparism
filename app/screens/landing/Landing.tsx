@@ -1,7 +1,8 @@
-import { Dimensions, SafeAreaView, Text, TextStyle, View, ViewStyle } from 'react-native'
-import React, { useCallback } from 'react'
+import { Dimensions, SafeAreaView, Text, TextStyle, View, ViewStyle, } from 'react-native'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { Button } from 'react-native-elements'
+import { Overlay } from 'react-native-elements'
 import { testID } from '../utils'
 import { useNavigation } from '@react-navigation/native'
 
@@ -26,10 +27,29 @@ const TITLE: TextStyle = {
 
 const Landing = () => {
   const navigation = useNavigation()
+  const [isLoading, setIsLoading] = useState(false)
   const addToDo = useCallback(() => {
     navigation.navigate('todo')
   }, [])
 
+  useEffect(() => {
+    async function loadData() {
+      setIsLoading(true)
+      const time = (Math.floor(Math.random() * 10) + 1) *1000
+      const result = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)  
+        }, time)
+      })
+  
+      if(result) {
+        setIsLoading(false)
+      }
+    }
+    loadData()
+  }, [])
+
+  
   return (
     <View style={CONTAINER} {...testID('landing-screen')}>
       <SafeAreaView/>
@@ -37,6 +57,11 @@ const Landing = () => {
         <View style={TITLE_WRAPPER}><Text style={TITLE}>功能</Text></View>
         <Button title="新增待辦事項" onPress={addToDo} {...testID('go-to-add-todo-button')} />
       </View>
+      <Overlay isVisible={isLoading}>
+        <View>
+          <Text>載入中</Text>
+        </View>
+      </Overlay>
     </View>
   )
 }

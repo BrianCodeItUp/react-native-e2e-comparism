@@ -1,6 +1,6 @@
 import { Button, Card, Input, Overlay } from 'react-native-elements'
 import { Keyboard, KeyboardAvoidingView, Platform, Text, TextInput, TextStyle, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { testID } from '../utils'
 import { useNavigation } from "@react-navigation/native"
@@ -40,7 +40,7 @@ const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassoword] = useState('');
   const [isError, setIsError] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false)
   const onLogin = useCallback(() => {
     if (userName.length === 0 || password.length === 0) {
       setIsError(true)
@@ -57,6 +57,23 @@ const Login = () => {
     ios: 'padding',
     android: null,
   };
+
+  useEffect(() => {
+    async function loadData() {
+      setIsLoading(true)
+      const time = (Math.floor(Math.random() * 10) + 1) *1000
+      const result = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)  
+        }, time)
+      })
+  
+      if(result) {
+        setIsLoading(false)
+      }
+    }
+    loadData()
+  }, [])
 
   return (
     <View style={{ flex: 1}} {...testID('app-root')} accessible={false}>
@@ -102,6 +119,11 @@ const Login = () => {
             onPress={() => setIsError(false)} 
             {...testID('login-error-popup-button')}
           />
+        </View>
+      </Overlay>
+      <Overlay isVisible={isLoading}>
+        <View>
+          <Text>載入中</Text>
         </View>
       </Overlay>
     </View>
