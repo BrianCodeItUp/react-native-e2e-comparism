@@ -58,58 +58,58 @@ const Login = () => {
     android: null,
   };
 
-  useEffect(() => {
-    async function loadData() {
-      setIsLoading(true)
-      const time = (Math.floor(Math.random() * 10) + 1) *1000
-      const result = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(true)  
-        }, time)
-      })
+  // useEffect(() => {
+  //   async function loadData() {
+  //     setIsLoading(true)
+  //     const time = (Math.floor(Math.random() * 10) + 1) *1000
+  //     const result = await new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         resolve(true)  
+  //       }, time)
+  //     })
   
-      if(result) {
-        setIsLoading(false)
-      }
-    }
-    loadData()
-  }, [])
+  //     if(result) {
+  //       setIsLoading(false)
+  //     }
+  //   }
+  //   loadData()
+  // }, [])
 
   return (
     <View style={{ flex: 1}} {...testID('app-root')} accessible={false}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
-      <KeyboardAvoidingView style={CONTAINR} behavior={keyboardBehavior[Platform.OS]} keyboardVerticalOffset={50}>
-        <Card containerStyle={CONTENT}>
-          <View style={TITLE_WRAPPER}>
-            <Text style={TITLE} {...testID('login-title')}>Login</Text>
-          </View>
-          <View style={INPUT_WRAPPER}>
-            <Input
-              label='E-mail'
-              placeholder='請輸入您的信箱'
-              value={userName}
-              onChangeText={(text) => {
-                console.log(text)
-                 setUserName(text)
-              }}
-              {...testID('username')}
+        <KeyboardAvoidingView style={CONTAINR} behavior={keyboardBehavior[Platform.OS]} keyboardVerticalOffset={50}>
+          <Card containerStyle={CONTENT}>
+            <View style={TITLE_WRAPPER}>
+              <Text style={TITLE} {...testID('login-title')}>Login</Text>
+            </View>
+            <View style={INPUT_WRAPPER}>
+              <Input
+                label='E-mail'
+                placeholder='請輸入您的信箱'
+                value={userName}
+                onChangeText={(text) => {
+                  console.log(text)
+                  setUserName(text)
+                }}
+                {...testID('username')}
+              />
+              <Input
+                label='Password'
+                placeholder='請輸入您的密碼'
+                value={password}
+                onChangeText={setPassoword}
+                {...testID('password')}
+              />
+            </View>
+            <Button 
+              title='登入' 
+              buttonStyle={BUTTON} 
+              onPress={onLogin}
+              {...testID('login-button')}
             />
-            <Input
-              label='Password'
-              placeholder='請輸入您的密碼'
-              value={password}
-              onChangeText={setPassoword}
-              {...testID('password')}
-            />
-          </View>
-          <Button 
-            title='登入' 
-            buttonStyle={BUTTON} 
-            onPress={onLogin}
-            {...testID('login-button')}
-          />
-        </Card>
-      </KeyboardAvoidingView>
+          </Card>
+        </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
       <Overlay isVisible={isError}>
         <View {...testID('login-error-popup')}>
