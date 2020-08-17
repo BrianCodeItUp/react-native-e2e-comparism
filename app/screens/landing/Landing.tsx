@@ -35,7 +35,7 @@ const Landing = () => {
   useEffect(() => {
     async function loadData() {
       setIsLoading(true)
-      const time = (Math.floor(Math.random() * 10) + 1) *1000
+      const time = (Math.floor(Math.random() * 5) + 1) *1000
       const result = await new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(true)  
@@ -57,8 +57,8 @@ const Landing = () => {
         <View style={TITLE_WRAPPER}><Text style={TITLE}>功能</Text></View>
         <Button title="新增待辦事項" onPress={addToDo} {...testID('go-to-add-todo-button')} />
       </View>
-      <Overlay isVisible={isLoading}>
-        <View>
+      <Overlay isVisible={isLoading} >
+        <View {...testID('loading-overlay')}>
           <Text>載入中</Text>
         </View>
       </Overlay>

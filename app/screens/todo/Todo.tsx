@@ -31,7 +31,7 @@ const POPUP_BUTTON: ViewStyle = {
 
 const Popup = ({ isVisible, setIsVisible }) => {
   return (
-    <Overlay isVisible={isVisible} >
+    <Overlay isVisible={isVisible}>
       <View style={POPUP_CONTENT_WRAPPER} {...testID('succed-popup')}>
         <Text style={POPUP_TITLE} {...testID('popup-title')}>新增成功</Text>
         <Button 
@@ -124,7 +124,7 @@ const Todos: React.FC = () => {
   useEffect(() => {
     async function loadData() {
       setIsLoading(true)
-      const time = (Math.floor(Math.random() * 10) + 1) *1000
+      const time = (Math.floor(Math.random() * 5) + 1) *1000
       const result = await new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(true)  
@@ -178,8 +178,8 @@ const Todos: React.FC = () => {
         isVisible={isAddSuccess} 
         setIsVisible={setIsAddSuccess}
       />
-      <Overlay isVisible={isLoading}>
-        <View>
+      <Overlay isVisible={isLoading}  >
+        <View {...testID('loading-overlay-02')}>
           <Text>載入中</Text>
         </View>
       </Overlay>
