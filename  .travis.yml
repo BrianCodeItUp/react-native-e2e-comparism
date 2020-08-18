@@ -35,4 +35,4 @@ matrix:
       install:
         - source ./travisci/ios-install.sh
       script:
-        - source ./travisci/ios-script.sh
+        - source ./travisci/ios-scripts.sh
