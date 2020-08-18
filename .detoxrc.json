@@ -10,6 +10,14 @@
         "type": "iPhone 11"
       }
     },
+    "ios.sim.release": {
+      "binaryPath": "ios/Build/Build/Products/Release-iphonesimulator/e2eSetup.app",
+      "build": "xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/Build",
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 11"
+      }
+    },
     "android.emu.debug": {
       "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
       "build":
@@ -18,19 +26,13 @@
       "device": {
         "avdName": "Pixel_3_API_29"
       }
-  },
-    "ios": {
-      "type": "ios.simulator",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
-      "device": {
-        "type": "iPhone 11"
-      }
     },
-    "android": {
+    "android.emu.release": {
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android ; ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release ; cd -",
       "type": "android.emulator",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
       "device": {
-        "avdName": "Pixel_2_API_29"
+        "avdName": "Pixel_3_API_29"
       }
     }
   }
