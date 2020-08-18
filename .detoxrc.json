@@ -12,7 +12,7 @@
     },
     "ios.sim.release": {
       "binaryPath": "ios/Build/Build/Products/Release-iphonesimulator/e2eSetup.app",
-      "build": "xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/Build",
+      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/Build | xcpretty",
       "type": "ios.simulator",
       "device": {
         "type": "iPhone 11"
