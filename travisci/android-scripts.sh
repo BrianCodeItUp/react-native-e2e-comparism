@@ -6,4 +6,4 @@ $ANDROID_HOME/emulator/emulator -verbose -no-window -no-audio -no-boot-anim -wip
  adb shell settings put global transition_animation_scale 0
  adb shell settings put global animator_duration_scale 0
  adb shell input keyevent 82
-detox test -c android.emu.release
+detox test -c android.emu.release --cleanup
