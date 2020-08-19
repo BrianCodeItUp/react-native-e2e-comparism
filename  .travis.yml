@@ -9,13 +9,13 @@ matrix:
       android:
         components:
           - build-tools-29.0.2
-          - android-29
+          - android-28
           - tools
           - platform-tools
           - extra-google-google_play_services
           - extra-google-m2repository
           - extra-android-m2repository
-          - sys-img-x86-android-29
+          - sys-img-x86-android-28
         licenses:
           - android-sdk-license-.+
           - google-gdk-license-.+
