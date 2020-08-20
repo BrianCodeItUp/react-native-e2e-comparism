@@ -1,7 +1,7 @@
 brew tap wix/brew
 brew install applesimutils
 brew install watchman
-brew insatll yarn
+brew install yarn
 gem install xcpretty >/dev/null 2>&1
 gem install cocoapods
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
