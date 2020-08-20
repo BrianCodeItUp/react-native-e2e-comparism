@@ -3,7 +3,7 @@
   "runnerConfig": "e2e/config.json",
   "configurations": {
     "ios.sim.debug": {
-      "binaryPath": "ios/build/Products/Debug-iphonesimulator/e2eSetup.app",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/e2eSetup.app",
       "build": "xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -quiet | xcpretty",
       "type": "ios.simulator",
       "device": {
@@ -11,7 +11,7 @@
       }
     },
     "ios.sim.release": {
-      "binaryPath": "ios/build/Products/Release-iphonesimulator/e2eSetup.app",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/e2eSetup.app",
       "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet | xcpretty",
       "type": "ios.simulator",
       "device": {
