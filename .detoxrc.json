@@ -3,16 +3,16 @@
   "runnerConfig": "e2e/config.json",
   "configurations": {
     "ios.sim.debug": {
-      "binaryPath": "ios/Build/Build/Products/Debug-iphonesimulator/e2eSetup.app",
-      "build": "xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Debug -sdk iphonesimulator -derivedDataPath ios/Build",
+      "binaryPath": "ios/build/Products/Debug-iphonesimulator/e2eSetup.app",
+      "build": "xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -quiet | xcpretty",
       "type": "ios.simulator",
       "device": {
         "type": "iPhone 11"
       }
     },
     "ios.sim.release": {
-      "binaryPath": "ios/Build/Build/Products/Release-iphonesimulator/e2eSetup.app",
-      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/Build | xcpretty",
+      "binaryPath": "ios/build/Products/Release-iphonesimulator/e2eSetup.app",
+      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/e2eSetup.xcworkspace -scheme e2eSetup -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet | xcpretty",
       "type": "ios.simulator",
       "device": {
         "type": "iPhone 11"

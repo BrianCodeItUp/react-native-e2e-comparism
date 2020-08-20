@@ -1,6 +1,7 @@
 brew tap wix/brew
 brew install applesimutils
 brew install watchman
+brew insatll yarn
 gem install xcpretty >/dev/null 2>&1
 gem install cocoapods
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
@@ -9,7 +10,7 @@ export PATH=$HOME/.nvm/versions/node/v12.18.3/bin:$PATH
 nvm install 12.18.3
 nvm use 12.18.3
 nvm alias default 12.18.3
-npm install
-npm install -g react-native
-npm install -g detox-cli
+yarn
+yarn global add react-native
+yarn global add detox-cli
 cd ios/ && pod install && cd ..
